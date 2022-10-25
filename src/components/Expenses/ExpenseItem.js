@@ -9,7 +9,7 @@ const ExpenseItem = props => {
     const [title, setTitle] = useState(props.myTitleArr);
     const changeTitle = () => {
         setTitle('My new Title');
-        console.log(title);
+        // console.log(title);
     };
     return (
         <Card className="expense-item">
