@@ -10,6 +10,9 @@ html {
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  background-color: #f4f4f4;
 }
 
+.w100 {
+  width: 100%;
+}
