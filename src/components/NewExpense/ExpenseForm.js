@@ -18,6 +18,9 @@ const ExpenseForm = (props) => {
 
     const getSubmitData = (e) => {
         e.preventDefault();
+        if (enteredTitle === '' || enteredPrice === '' || enteredDate === '') {
+            return false;
+        }
         const expenseData = {
             title: enteredTitle,
             price: enteredPrice,
