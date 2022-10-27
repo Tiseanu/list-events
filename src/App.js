@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
+import Chart from './components/Chart/Chart';
 
 let expensesArr = [
   { id: 'e1', title: 'Toilet Paper', price: 94.12, date: new Date(2020, 7, 14) },
@@ -20,10 +21,17 @@ const App = () => {
     updatedArr(expensesArr);
   }
 
+  const nrOfItemsArr = [
+    {name: 'Jan', value: '2'},
+  ]
+
   return (
     <div id='expenseWrapper'>
-      <h2>Let's get started!</h2>
+      <h1>List of items</h1>
       <NewExpense onAddToExpenseObject={AddToExpenseObjectFct} />
+
+      <Chart nrOfItems={nrOfItemsArr} />
+
       <Expenses myArr={cArr} />
     </div>
   );

@@ -5,12 +5,13 @@ const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredPrice, setEnteredPrice] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+    const [displayForm, setDisplayForm] = useState(false);
 
     const titleInputData = (event) => {
         setEnteredTitle(event.target.value);
     }
     const priceInputData = (event) => {
-		setEnteredPrice(event.target.value);
+        setEnteredPrice(event.target.value);
     }
     const dateInputData = (event) => {
         setEnteredDate(event.target.value);
@@ -30,7 +31,20 @@ const ExpenseForm = (props) => {
         setEnteredTitle('');
         setEnteredPrice('');
         setEnteredDate('');
+        setDisplayForm(false);
     }
+
+    const showForm = () => {
+        setDisplayForm(true);
+    }
+    const hideForm = () => {
+        setDisplayForm(false);
+    }
+
+    if (!displayForm) {
+        return <div className="new-expense__actions"><button onClick={showForm}>Add New Expense</button></div>;
+    }
+
     return (
         <form onSubmit={getSubmitData}>
             <div className="new-expense__controls">
@@ -49,6 +63,7 @@ const ExpenseForm = (props) => {
                     </div>
                 </div>
                 <div className="new-expense__actions">
+                    <button type="button" onClick={hideForm}>Cancel</button>
                     <button type="submit">Add Expense</button>
                 </div>
             </div>
