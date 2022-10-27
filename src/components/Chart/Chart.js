@@ -3,17 +3,21 @@ import './Chart.css';
 import './ChartBar.css';
 
 const Chart = (props) => {
+    console.log(props.nrOfItems);
+    const valueArray = props.nrOfItems.map(item => item.value);
+    const totalMax = Math.max(...valueArray);
+
     return (
         <div className="chart">
-            {props.nrOfItems.map((item) => 
+            {props.nrOfItems.map((item, key) => 
                 <ChartBar 
-                key={item.name} 
+                key={key} 
                 value={item.value} 
-                maxValue={null} 
-                label={item.name} />)
+                maxValue={totalMax} 
+                label={item.label} />)
             }
         </div>
     )
-}
+} 
 
 export default Chart;
